@@ -1,0 +1,15 @@
+.footer{
+    margin: 65px auto 0 auto;
+    background-color: #029491;
+}
+.footer__wrapper{
+    width: 1320px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.footer__connectInfo{
+    text-align: end;
+    margin-top: 27px;
+    color:white;
+}

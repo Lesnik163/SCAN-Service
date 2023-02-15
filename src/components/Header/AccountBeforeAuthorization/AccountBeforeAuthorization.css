@@ -1,0 +1,23 @@
+.accountPanel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 18%;
+}
+.accountPanel__link {
+    align-self: center;
+    text-decoration: none;
+    color:black;
+    opacity: 40%;
+}
+.accountPanel__button{
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: #7CE3E1;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
