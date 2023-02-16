@@ -6,7 +6,7 @@ const AccountBeforeAuthorization = () => {
   return (
     <div className='accountPanel'>
         <a className='accountPanel__link' href='xxx'>Зарегистрироваться</a>
-        <img src={verticalSlash} alt='verticalSlash' />
+        <img className='accountPanel__verticalSlash' src={verticalSlash} alt='verticalSlash' />
         <button className='accountPanel__button'>Войти</button>
     </div> 
   )

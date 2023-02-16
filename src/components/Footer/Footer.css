@@ -1,9 +1,9 @@
 .footer{
-    margin: 65px auto 0 auto;
+    margin-top: 65px ;
     background-color: #029491;
 }
 .footer__wrapper{
-    width: 1320px;
+    width: 96vw;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
@@ -12,4 +12,10 @@
     text-align: end;
     margin-top: 27px;
     color:white;
+}
+
+@media all and (max-width:1270px) {
+    .footer{
+        margin-top: 470px;
+    }
 }

@@ -3,9 +3,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 420px;
+    width: 90%;
     margin: 10px auto ;
     
+}
+.form__linkBox{
+    width: -webkit-fill-available;
 }
 .form__link{
     display: inline-block;
@@ -13,7 +16,7 @@
     color: #029491;
     border-bottom: 3px solid #029491;
     margin-right: 15px;
-    width: 200px;
+    width: 35%;
     padding-left: 0px;
     text-align: center;
     box-sizing: border-box;
@@ -25,6 +28,7 @@
     color: #C7C7C7;
     border-bottom: 3px solid #C7C7C7;
     margin-right: 0px;
+    width: 60%
 }
 .form__button{
     width: -webkit-fill-available;

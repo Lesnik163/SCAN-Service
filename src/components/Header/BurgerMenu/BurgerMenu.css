@@ -1,0 +1,13 @@
+.BurgerMenu{
+    align-self: center;
+    display: none;
+}
+.BurgerMenu__button{
+    background-color: white;
+    border: none;
+}
+@media all and (max-width: 950px) {
+    .BurgerMenu {
+        display: block;
+    }
+}
