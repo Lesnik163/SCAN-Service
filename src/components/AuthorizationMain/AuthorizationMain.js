@@ -1,10 +1,10 @@
 import React from 'react'
-import './Main.css'
+import './AuthorizationMain.css'
 import peopleWithKey from './peopleWithKey.svg';
 import padlock from './padlock.svg';
 import Form from './Form';
 
-const Main = () => {
+const AuthorizationMain = () => {
   return (
     <main className='main'>
       <div className='main__wrapper'>
@@ -21,4 +21,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default AuthorizationMain

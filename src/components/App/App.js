@@ -1,14 +1,15 @@
 import './App.css';
-import '../Header'
+import '../Header';
+
 import Header from '../Header';
-import Main from '../Main'
+import CommonAccessMain from '../CommonAccessMain'
 import Footer from '../Footer';
 
 function App() {
   return (
     <div>
       <Header />
-      <Main />
+      <CommonAccessMain />
       <Footer />
     </div>
   );
