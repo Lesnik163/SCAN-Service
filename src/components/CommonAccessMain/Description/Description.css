@@ -30,5 +30,30 @@
     border: none;
     font-size: 22px;
     font-weight: 500;
-    width: 50%;
+    width: 335px;
 }
+@media all and (max-width: 1150px) {
+    .Description__block{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .Description__paragraph{
+        width: 100%
+    }
+    .Description__leftBlock{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .funMan{
+        width: 100%;
+    }
+}
+@media all and (max-width: 750px) {
+    .Description__title{
+        font-size: 28px;
+        line-height: 33px;
+    }
+}
+    

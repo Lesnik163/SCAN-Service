@@ -20,7 +20,7 @@ const Carousel = () => {
       window.removeEventListener('resize', handleResize)
     }
   },[width])
-  const slidesToShow = width < 1200 ? 1 : 3;
+  const slidesToShow = width < 1100 ? 1 : 3;
   const settings = {
       slidesToScroll: 1,
       className: "center",
@@ -66,5 +66,4 @@ const Carousel = () => {
       </div>
     );
   }
-
 export default Carousel;

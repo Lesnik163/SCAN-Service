@@ -26,3 +26,9 @@
     font-size: 45px;
     line-height: 54px;
 }
+@media all and (max-width: 750px) {
+    .slider__title{
+        font-size: 28px;
+        line-height: 33px; 
+    }   
+}

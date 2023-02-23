@@ -10,7 +10,7 @@
     font-size: 14px;
     line-height: 17px;
 }
-@media all and (max-width:1180px) {
+@media all and (max-width:750px) {
     .menu{
         display: none;
     }

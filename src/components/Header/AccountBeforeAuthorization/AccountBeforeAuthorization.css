@@ -31,7 +31,7 @@
         width: 25vw;
     }
 }
-@media all and (max-width: 950px) {
+@media all and (max-width: 750px) {
     .accountPanel {
         display: none;
     }

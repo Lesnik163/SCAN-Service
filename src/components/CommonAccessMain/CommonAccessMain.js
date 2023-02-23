@@ -3,6 +3,8 @@ import './CommonAccessMain.css';
 import Description from './Description';
 import MainCarousel from './MainCarousel';
 import manWithTick from './manWithTick.svg'
+import Tariffs from './Tariffs';
+
 
 const CommonAccessMain = () => {
   return (
@@ -10,7 +12,8 @@ const CommonAccessMain = () => {
       <div className='main__wrapper'>
         <Description />
         <MainCarousel />
-        <img src={manWithTick} alt='manWithTick' />
+        <img className='manWithTick' src={manWithTick} alt='manWithTick' />
+        <Tariffs />
       </div> 
     </main>
   )

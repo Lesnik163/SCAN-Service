@@ -14,8 +14,3 @@
     color:white;
 }
 
-@media all and (max-width:1270px) {
-    .footer{
-        margin-top: 470px;
-    }
-}
