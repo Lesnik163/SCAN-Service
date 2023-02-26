@@ -1,4 +1,4 @@
-import React , {useState, useEffect} from "react";
+import React from "react";
 import Slider from "react-slick";
 import './Carousel.css'
 
@@ -7,20 +7,12 @@ import lens from'./lens.svg';
 import shield from './shield.svg';
 import { ReactComponent as RightChevron } from './right-chevron.svg';
 import { ReactComponent as LeftChevron } from './left-chevron.svg';
-
+import { useSelector } from 'react-redux';
 
 const Carousel = () => {
-  const [width, setWidth] = useState(window.innerWidth);
-  const handleResize = () => {
-    setWidth(window.innerWidth)
-  }
-  useEffect(()=>{
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  },[width])
-  const slidesToShow = width < 1100 ? 1 : 3;
+  const newWidth = useSelector(state => state.app.width)
+  
+  const slidesToShow = newWidth < 1100 ? 1 : 3;
   const settings = {
       slidesToScroll: 1,
       className: "center",

@@ -10,7 +10,7 @@
 .main{
     margin-top: 45px;
 }
-.main__wrapper{
+.main__wrapper-auth{
     width: 96vw;
     display: flex;
     justify-content: space-between;
@@ -44,7 +44,7 @@
     width: -webkit-fill-available;
 }
 @media all and (max-width:1270px) {
-    .main__wrapper{
+    .main__wrapper-auth{
        flex-direction: column;
        align-items: center;
     }

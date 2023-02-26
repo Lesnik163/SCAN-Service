@@ -9,7 +9,7 @@ import Tariffs from './Tariffs';
 const CommonAccessMain = () => {
   return (
     <main className='main'>
-      <div className='main__wrapper'>
+      <div className='main__wrapper-common'>
         <Description />
         <MainCarousel />
         <img className='manWithTick' src={manWithTick} alt='manWithTick' />

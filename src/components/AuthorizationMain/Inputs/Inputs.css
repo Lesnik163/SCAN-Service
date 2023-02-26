@@ -14,3 +14,10 @@
     border: 2px solid #C7C7C7;
     box-shadow: 0px 0px 20px rgb(0 0 0 / 5%);
 }
+.form__errText{
+    display: block;
+    color: tomato;
+    align-self: center;
+    margin: -8px auto 10px auto;
+    visibility: hidden;
+}

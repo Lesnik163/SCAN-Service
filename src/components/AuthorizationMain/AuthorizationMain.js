@@ -7,7 +7,7 @@ import Form from './Form';
 const AuthorizationMain = () => {
   return (
     <main className='main'>
-      <div className='main__wrapper'>
+      <div className='main__wrapper-auth'>
         <div className='main__leftBox'>
           <h1 className='main__title'>Для оформления подписки на тариф, необходимо авторизоваться.</h1>
           <img className='main__image' src={peopleWithKey} alt='peopleWithKey' />

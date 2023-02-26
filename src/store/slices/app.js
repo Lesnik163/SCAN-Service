@@ -7,14 +7,11 @@ export const app = createSlice({
   },
   reducers: {
     setScreenWidth: (state, action) => {
-      state = {
-            width: action.payload
-        }
+      state.width = action.payload
     }
   }
 })
 
-// Action creators are generated for each case reducer function
 export const {setScreenWidth} = app.actions
 
 export default app.reducer
