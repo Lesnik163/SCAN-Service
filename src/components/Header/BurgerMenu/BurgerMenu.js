@@ -6,14 +6,31 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import './BurgerMenu.css';
 import Logo from '../../Footer/Logo';
 import burger from './burger.svg';
+import { useNavigate } from "react-router-dom";
 
-// const Burger = (props) => {
-//   return (
-//     <button {...props}>
-//       <img src={burger} alt='burger' />
-//     </button>
-//   )
-// }
+function LoginButton() {
+  function handleClick() {
+    navigate("/login");
+  }
+  const navigate = useNavigate();
+
+  return (
+    <button variant="outline-success" className='button' onClick={handleClick}>
+      Войти
+    </button>
+  );
+}  
+function ReturnMain() {
+  function handleClick() {
+    navigate("/");
+  }
+  const navigate = useNavigate();
+
+  return (
+    <Nav.Link href="#action1" onClick={handleClick}>Главная</Nav.Link>
+  );
+}  
+
 function BurgerMenu() {
   const expand = false
   return (    
@@ -34,18 +51,17 @@ function BurgerMenu() {
               <Offcanvas.Body className='burgerMenu__body'>
                 
                 <Nav className="text-center nav">
-                  <Nav.Link href="#action1" >Главная</Nav.Link>
+                  <ReturnMain />
+                  {/* <Nav.Link href="#action1" onClick={returnMain}>Главная</Nav.Link> */}
                   <Nav.Link href="#action2" >Тарифы</Nav.Link>
                   <Nav.Link href="#action3" >FAQ</Nav.Link>
                 </Nav>
-                <a className='burgerMenu__link' href='#' >Зарегистрироваться</a>
-                <button variant="outline-success" className='button'>Войти</button>
+                <a className='burgerMenu__link' href='XXX' >Зарегистрироваться</a>
+                <LoginButton />
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
-        </Navbar>
-             
-    
+        </Navbar> 
   );
 }
 

@@ -33,7 +33,7 @@
 .form__button{
     width: -webkit-fill-available;
     background-color: #5970FF;
-    opacity: 50%;
+    /* opacity: 50%/; */
     color: #FFFFFF;
     height: 60px;
     border-radius: 5px;

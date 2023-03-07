@@ -1,9 +1,6 @@
 import './App.css';
 import React, {useEffect} from 'react';
-
-
 import Header from '../Header';
-import CommonAccessMain from '../CommonAccessMain'
 import Footer from '../Footer';
 import { setScreenWidth } from '../../store/slices/app';
 import { useDispatch } from 'react-redux';

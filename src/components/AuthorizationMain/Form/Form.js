@@ -2,17 +2,21 @@ import React, {useState} from 'react'
 import Inputs from '../Inputs';
 import './Form.css';
 import FormFooter from '../FormFooter';
-import { loginFetch } from '../../../services/auth';
+import { useDispatch } from 'react-redux';
+import {useNavigate} from 'react-router-dom';
+import { signIn } from '../../../store/slices/profile';
 
 const Form = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const  handleSubmit = async () => {
-    const res = await loginFetch({
+    dispatch(signIn({
       login,
       password
-    })
-    console.log(res)
+    }))
+    navigate("/");   
   }
   const submitDisable = !( login && password )
   return (
@@ -26,7 +30,11 @@ const Form = () => {
         password={password} 
         setLogin={setLogin} 
         setPassword={setPassword}/>
-        <button className='form__button' onClick={handleSubmit} disabled={submitDisable}>Войти</button>
+        <button 
+        className='form__button' 
+        onClick={handleSubmit} 
+        disabled={submitDisable}
+        style={submitDisable ? {opacity:`${'50%'}`} : {opacity:`${'100%'}`}}>Войти</button>
         <a className='form__ResumeLink' href='xxx' >Восстановить пароль</a>
         <FormFooter />
       </div>

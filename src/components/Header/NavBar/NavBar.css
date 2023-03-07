@@ -1,16 +1,37 @@
 .menu{
     display:flex;
     align-items: center;
+    margin-left: 7vw;
 }
-.menu__link{
+.menu__link {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     margin-right: 45px;
     text-decoration: none;
     color: black;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 14px;
     line-height: 17px;
+    cursor: text;
+    pointer-events: none;
 }
-@media all and (max-width:750px) {
+.menu__link:hover{
+    color: black;
+}
+.menu__link_active{
+    pointer-events:initial;
+    cursor:pointer;
+    color:black;   
+}
+.menu__link_active:hover{
+    color:blue;
+}
+@media all and (max-width:1000px) {
+    .menu{
+    margin-left: 60px;
+    }
+    
+}
+@media all and (max-width:950px) {
     .menu{
         display: none;
     }

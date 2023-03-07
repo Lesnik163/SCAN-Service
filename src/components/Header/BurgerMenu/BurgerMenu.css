@@ -46,7 +46,7 @@
     background-repeat: no-repeat;
     cursor: pointer;
 }
-@media all and (max-width: 750px) {
+@media all and (max-width: 950px) {
     .BurgerMenu {
         display: block !important; 
     }
