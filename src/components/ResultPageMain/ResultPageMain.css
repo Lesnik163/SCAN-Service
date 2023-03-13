@@ -1,0 +1,28 @@
+.resultMain{
+    margin: 0 auto;
+}
+.resultMain__wrapper{
+    display:flex;
+    flex-direction: column;
+    width:96%;
+    margin:0 auto;
+}
+.upper__box{
+    width:30%;
+}
+.upper__title{
+    font-family: 'Ferry', Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 4%;
+    font-weight: 900;
+}
+.upper__title_middle{
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: 2%;
+}
+.resultMain__upper{
+    display:flex;
+    justify-content: space-between;
+}

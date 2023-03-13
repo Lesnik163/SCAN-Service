@@ -2,19 +2,17 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import './CompanyInfo.css';
 const CompanyInfo = () => {
-  const usedCompany = useSelector(state => state.profile.companyInfo[0]);
-  console.log(usedCompany)
-  const companyLimit = useSelector(state => state.profile.companyInfo[1]);
-  console.log(companyLimit)
+  const companyQuantityInfo = useSelector(state => state.profile.companyInfo);
+  console.log(companyQuantityInfo)
   return (
     <div className='companyBox'>
       <div >
         <span className='companyBox__usedCompany'>Использовано компаний</span>
-        <span className='companyBox__black'>35</span>
+        <span className='companyBox__black'>{companyQuantityInfo.eventFiltersInfo.usedCompanyCount}</span>
       </div>
       <div>
         <span className='companyBox__usedCompany'>Лимит по компаниям</span>
-        <span className='companyBox__green'>44</span>
+        <span className='companyBox__green'>{companyQuantityInfo.eventFiltersInfo.companyLimit}</span>
       </div>
     </div>
   )

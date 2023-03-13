@@ -12,8 +12,7 @@ useEffect(()=>{
   dispatch(getCompanyInfo())
 },[companyInfo , dispatch]) 
 return (
-    <div className='accountPanel'>
-      
+    <div className='accountPanel'>      
       {companyInfo ? <CompanyInfo /> : <LoaderInfo />}
       <Avatar />
     </div>
