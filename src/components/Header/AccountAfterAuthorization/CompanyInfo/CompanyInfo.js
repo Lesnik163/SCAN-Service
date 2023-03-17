@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import './CompanyInfo.css';
 const CompanyInfo = () => {
   const companyQuantityInfo = useSelector(state => state.profile.companyInfo);
-  console.log(companyQuantityInfo)
   return (
     <div className='companyBox'>
       <div >

@@ -9,7 +9,9 @@ const AccountAfterAuthorization = () => {
 const dispatch = useDispatch();
 const companyInfo = useSelector(state => state.profile.companyInfo)
 useEffect(()=>{
-  dispatch(getCompanyInfo())
+  if(!companyInfo){
+    dispatch(getCompanyInfo())
+  }
 },[companyInfo , dispatch]) 
 return (
     <div className='accountPanel'>      

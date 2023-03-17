@@ -1,0 +1,14 @@
+.publicationCards__wrapper{
+    display:flex; 
+    justify-content: space-between;
+}
+.publicationCards__content{
+    display: block;
+    flex-direction: column;
+    width: 49%;
+    box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+    border-radius: 10px;
+}
+.publicationCards__dateArticle{
+    display: flex;
+}

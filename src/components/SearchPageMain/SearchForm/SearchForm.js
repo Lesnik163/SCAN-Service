@@ -3,7 +3,7 @@ import './SearchForm.css'
 import document from '../document.svg';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getHistogramInfo } from '../../../store/slices/histograms';
+import { getDocuments, getHistogramInfo, getPublication } from '../../../store/slices/histograms';
 import {useNavigate} from 'react-router-dom';
 
 const SearchForm = () => {
@@ -78,6 +78,7 @@ const SearchForm = () => {
       ]
     }
     dispatch(getHistogramInfo(requestBody));
+    dispatch(getPublication(requestBody))
     navigate('/result')
   }
   const submitDisable = !( startDate && endDate && inn && accessedDocs )

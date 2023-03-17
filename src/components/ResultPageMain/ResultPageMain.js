@@ -2,8 +2,11 @@ import React from 'react';
 import './ResultPageMain.css';
 import aim from './womenAim.svg';
 import ResultCarousel from './ResultCarousel'
+import { useSelector } from 'react-redux';
+import PublicationCards from './PublicationCards';
 
 const ResultPageMain = () => {
+  let fundedDocs = useSelector(state => state.histograms.histogramInfo)
   return (
     <main className='resultMain'>
       <div className='resultMain__wrapper'>  
@@ -19,12 +22,15 @@ const ResultPageMain = () => {
         <div className='resultMain__middle'>
           <div className='upper__box'>
             <h1 className='upper__title upper__title_middle'>Общая сводка</h1>
-            <section>Найдено 4 221 вариантов</section>
+            <section className='resultMain__section'>Найдено {fundedDocs?.length||0} вариантов</section>
           </div>
           <ResultCarousel />
         </div>
         <div className='resultMain__lower'>
-
+          <div className='lower__box'>
+            <h1 className='upper__title upper__title_middle'>Список документов</h1>
+            <PublicationCards />
+          </div>
         </div>
       </div>  
     </main>

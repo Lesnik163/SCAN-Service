@@ -1,20 +1,31 @@
 .greenBlock{
-    background-color: #029491;
-    padding: 2px 0px 2px 0px;
+    border:2px solid #029491;
     margin-left: 10px;
     display: flex;
     border-radius: 5px;
+    margin-bottom: 107px;
+    height: 158px;
 }
 .sections{
-    width: 170px;
-    display: inline-block;
+    width: 10%;
     text-align: center;
     color: white;
+    background-color: #029491;
+    padding-top: 12px;
+    line-height: 40px;
 }
 .periodItemCss{
     text-align: center;
     border-right: 3px solid #94949466;
     padding: 5px 0;
     margin:10px 0;
-    
+    background-color: white;
+    line-height: 40px;
+}
+.slider-wrapper{
+    width: 90%;
+}
+.resultMain__section{
+    margin:20px 0;
+    color:#949494;
 }

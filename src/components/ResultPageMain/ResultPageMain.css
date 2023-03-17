@@ -1,5 +1,6 @@
 .resultMain{
     margin: 0 auto;
+    font-family: 'Inter',Arial, Helvetica, sans-serif;
 }
 .resultMain__wrapper{
     display:flex;
@@ -16,11 +17,13 @@
     line-height: 48px;
     letter-spacing: 4%;
     font-weight: 900;
+    margin-bottom: 36px;
 }
 .upper__title_middle{
     font-size: 30px;
     line-height: 36px;
     letter-spacing: 2%;
+    margin:0;
 }
 .resultMain__upper{
     display:flex;
