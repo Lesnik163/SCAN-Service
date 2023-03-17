@@ -7,11 +7,11 @@ const CompanyInfo = () => {
     <div className='companyBox'>
       <div >
         <span className='companyBox__usedCompany'>Использовано компаний</span>
-        <span className='companyBox__black'>{companyQuantityInfo.eventFiltersInfo.usedCompanyCount}</span>
+        <span className='companyBox__black'>{companyQuantityInfo.usedCompanyCount}</span>
       </div>
       <div>
         <span className='companyBox__usedCompany'>Лимит по компаниям</span>
-        <span className='companyBox__green'>{companyQuantityInfo.eventFiltersInfo.companyLimit}</span>
+        <span className='companyBox__green'>{companyQuantityInfo.companyLimit}</span>
       </div>
     </div>
   )

@@ -220,7 +220,7 @@ export const documentSearch = [
                 ]
             },
             "attributes": {
-                "isTechNews": false,
+                "isTechNews": true,
                 "isAnnouncement": false,
                 "isDigest": false,
                 "influence": 91.0,

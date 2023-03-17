@@ -8,7 +8,7 @@ import BurgerMenu from './BurgerMenu';
 import { useSelector } from 'react-redux';
 
 function Header() {
-  const accountInfo = useSelector((state)=>state.profile.accountInfo);
+  const accountInfo = useSelector((state)=>state.profile.companyInfo);
   const AccountElement = accountInfo ? AccountAfterAuthorization : AccountBeforeAuthorization
   return (
     <header className='header'>

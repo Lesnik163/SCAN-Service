@@ -11,9 +11,10 @@ export const getCompanyInfo = createAsyncThunk(
 )
 export const signIn = createAsyncThunk(
     'signIn',
-    async (data) => {
+    async (data, thunk) => {
         const profResponse = await loginFetch(data)
         localStorage.setItem('accessToken', profResponse.accessToken)
+        thunk.dispatch(getCompanyInfo)
         return profResponse
     }
 )
@@ -27,6 +28,7 @@ export const profile = createSlice({
     reducers: {
         signOut: (state) => {
             state.accountInfo = null;
+            state.companyInfo = null;
             localStorage.removeItem('accessToken')
         }
     },

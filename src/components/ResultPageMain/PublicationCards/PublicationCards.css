@@ -8,7 +8,7 @@
     width: 49%;
     box-shadow: 0 0 20px rgb(0 0 0 / 20%);
     border-radius: 10px;
-    padding: 20px 30px 35px 15px;
+    padding: 20px 30px 35px 30px;
 }
 .publicationCards__title{
     font-weight: 700;
@@ -43,4 +43,9 @@
 .publicationCards__section{
     color: #949494;
     align-self: center;
+}
+.publicationCards__img{
+    max-width: 100%;
+    display: block;
+    margin: 15px  auto 0 auto;
 }

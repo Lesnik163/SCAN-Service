@@ -5,7 +5,7 @@ import './Description.css';
 import funMan from './funMan.svg';
 
 const Description = () => {
-  const accountInfo = useSelector((state)=>state.profile.accountInfo);
+  const companyInfo = useSelector((state)=>state.profile.companyInfo);
     const navigate = useNavigate();
   return (
       <div className='Description__block'>
@@ -14,9 +14,9 @@ const Description = () => {
           </h1>
           <p className='Description__paragraph'>Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.
           </p>
-          {accountInfo && <button 
+          {companyInfo && <button 
           className='RequestBtn'
-          onClick={navigate('/search')}>Запросить данные</button>}
+          onClick={()=>navigate('/search')}>Запросить данные</button>}
         </div>
         <div className='Description__rightBlock'>
           <img className='funMan' src={funMan} alt='funMan' />

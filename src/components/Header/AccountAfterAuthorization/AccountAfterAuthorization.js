@@ -1,18 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import CompanyInfo from './CompanyInfo/CompanyInfo';
 import Avatar from './Avatar/Avatar';
 import LoaderInfo from './LoaderInfo/LoaderInfo';
 import './AccountAfterAuthorization.css'
-import { useDispatch, useSelector } from 'react-redux';
-import { getCompanyInfo } from '../../../store/slices/profile';
+import { useSelector } from 'react-redux';
+
 const AccountAfterAuthorization = () => {
-const dispatch = useDispatch();
+
 const companyInfo = useSelector(state => state.profile.companyInfo)
-useEffect(()=>{
-  if(!companyInfo){
-    dispatch(getCompanyInfo())
-  }
-},[companyInfo , dispatch]) 
 return (
     <div className='accountPanel'>      
       {companyInfo ? <CompanyInfo /> : <LoaderInfo />}
