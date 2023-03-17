@@ -8,7 +8,39 @@
     width: 49%;
     box-shadow: 0 0 20px rgb(0 0 0 / 20%);
     border-radius: 10px;
+    padding: 20px 30px 35px 15px;
+}
+.publicationCards__title{
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 31px;
+    letter-spacing: 2%;
 }
 .publicationCards__dateArticle{
     display: flex;
+}
+.publicationCards__span{
+    color:#949494;
+    margin-right: 20px;
+}
+.publicationCards__article{
+    color:#949494;
+}
+.publicationCards__text{
+    opacity:50%;
+}
+.publicationCards__button{
+    border: none;
+    background-color: #7CE3E1;
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 10px 20px;
+}
+.publicationCards__buttonBox{
+    display:flex;
+    justify-content: space-between;
+}
+.publicationCards__section{
+    color: #949494;
+    align-self: center;
 }

@@ -26,21 +26,23 @@ const PublicationCards = () => {
   //   return null
   // }
   const docs = convertDocObjectToCard(documentSearch)
-  const allowed = ['strong', 'em'];
+
   return (
     <div className='publicationCards__wrapper'>
     {docs.map(obj=>
     <div className='publicationCards__content'>
         <div className='publicationCards__dateArticle'>
-          <span>{obj.date}</span>
-          <a href={obj.articleUrl}>{obj.articleUrlTitle}</a>
+          <span className='publicationCards__span'>{obj.date}</span>
+          <a 
+          className='publicationCards__article'
+          href={obj.articleUrl}>{obj.articleUrlTitle}</a>
         </div>
-        <h5 className='publicationCards__title'>{obj.articleTitle}</h5>
+        <h4 className='publicationCards__title'>{obj.articleTitle}</h4>
         <section>{obj.articleTags}</section>
-        <Markup  markup={obj.articleContent} />
-        <div>
-          <button>Читать источник</button>
-          <section>{obj.wordCount}</section>
+        <Markup className='publicationCards__text' markup={obj.articleContent} />
+        <div className='publicationCards__buttonBox'>
+          <button className='publicationCards__button'>Читать источник</button>
+          <section className='publicationCards__section'>{obj.wordCount} слов&lang;а&rang;</section>
         </div>
     </div>         
       )}

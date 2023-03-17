@@ -28,7 +28,7 @@ const ResultPageMain = () => {
         </div>
         <div className='resultMain__lower'>
           <div className='lower__box'>
-            <h1 className='upper__title upper__title_middle'>Список документов</h1>
+            <h1 className='upper__title upper__title_middle'>cписок документов</h1>
             <PublicationCards />
           </div>
         </div>
