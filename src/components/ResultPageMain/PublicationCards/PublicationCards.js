@@ -4,7 +4,6 @@ import { documentSearch } from '../../../MockData/documentSearch'
 import { getDocuments } from '../../../store/slices/histograms'
 import './PublicationCards.css'
 import {convertDocObjectToCard} from '../../../utils/convertDocObjectToCardInfo'
-import { Markup, renderMarkup } from 'react-render-markup';
 
 const PublicationCards = () => {
   const {publicationIds, documents} = useSelector(state => ({
@@ -26,7 +25,12 @@ const PublicationCards = () => {
   //   return null
   // }
   const docs = convertDocObjectToCard(documentSearch)
-
+  const parseXml = (xml) => {
+    const DOMParse = new DOMParser();
+    const xmlDoc = DOMParse.parseFromString(xml, 'text/html');
+    console.log(xmlDoc.documentElement.querySelectorAll('img'))
+    return xmlDoc.documentElement.textContent
+  }
   return (
     <div className='publicationCards__wrapper'>
     {docs.map(obj=>
@@ -39,7 +43,7 @@ const PublicationCards = () => {
         </div>
         <h4 className='publicationCards__title'>{obj.articleTitle}</h4>
         <section>{obj.articleTags}</section>
-        <Markup className='publicationCards__text' markup={obj.articleContent} />
+        <div dangerouslySetInnerHTML={{ __html: parseXml(obj.articleContent) }} />
         <div className='publicationCards__buttonBox'>
           <button className='publicationCards__button'>Читать источник</button>
           <section className='publicationCards__section'>{obj.wordCount} слов&lang;а&rang;</section>
