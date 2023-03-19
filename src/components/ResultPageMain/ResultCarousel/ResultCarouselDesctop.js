@@ -12,14 +12,14 @@ const ResultCarousel = () => {
     const newWidth = useSelector(state => state.app.width)
     let maxSlideNumber = summary?.length>8 ? 8 : summary?.length
     
-    const slidesToShow = newWidth < 1100 ? 1 : maxSlideNumber ; 
+    const slidesToShow = newWidth < 700 ? 1 : maxSlideNumber ; 
     
     function LeftArrow(props) {
       const { className, style, onClick } = props;
       return (
         <LeftChevron 
           className={className}
-          style={{ ...style, display: "block", left:'-13%'}}
+          style={{ ...style, display: "block", left:'-15%'}}
           onClick={onClick}
         />
       );
@@ -44,6 +44,7 @@ const ResultCarousel = () => {
           <div className='slider-wrapper'>
             <Slider {...settings} >
               {summary && summary.map((period)=><Period
+              className='periodItemCss'
               date={period.date}
               total={period.total}
               risk={period.risk}

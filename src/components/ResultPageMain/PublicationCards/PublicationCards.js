@@ -44,7 +44,9 @@ const PublicationCards = () => {
         {obj.imageUrl && <img className='publicationCards__img' src={obj.imageUrl} alt='article pic' />}
         <div dangerouslySetInnerHTML={{ __html: obj.articleContent }} />
         <div className='publicationCards__buttonBox'>
-          <button className='publicationCards__button'>Читать источник</button>
+          <form action={obj.articleUrl} target="_blank"> 
+            <button className='publicationCards__button'>Читать источник</button>
+          </form>
           <section className='publicationCards__section'>{obj.wordCount} слов&lang;а&rang;</section>
         </div>
     </div>         

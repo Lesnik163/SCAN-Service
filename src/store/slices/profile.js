@@ -14,7 +14,7 @@ export const signIn = createAsyncThunk(
     async (data, thunk) => {
         const profResponse = await loginFetch(data)
         localStorage.setItem('accessToken', profResponse.accessToken)
-        thunk.dispatch(getCompanyInfo)
+        thunk.dispatch(getCompanyInfo())
         return profResponse
     }
 )

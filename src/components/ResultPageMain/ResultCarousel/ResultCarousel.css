@@ -1,9 +1,8 @@
 .greenBlock{
     border:2px solid #029491;
-    margin-left: 10px;
+    margin:0 10px 107px 10px;
     display: flex;
     border-radius: 5px;
-    margin-bottom: 107px;
     height: 158px;
 }
 .sections{
@@ -29,3 +28,34 @@
     margin:20px 0;
     color:#949494;
 }
+.period__item{
+    width:33%;
+}
+.blockMobile{
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+.sectionsMobile{
+    display:flex;
+    justify-content: space-between;
+    background-color: #029491;
+    text-align:center;
+    border-radius: 5px 5px 0 0;
+    height: 40px;
+    align-items: center;
+    color: white;
+}
+.periodItemCssMobile{
+    display:flex !important;
+    justify-content: space-between !important;
+    text-align:center;
+    border-radius:0 0 5px 5px;
+    height: 40px;
+    align-items: center;
+}
+.sectionsMobile__item{
+    width:33%;
+}
+

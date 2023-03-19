@@ -1,3 +1,3 @@
-import ResultCarousel from './ResultCarousel'
+import ResultCarousel from './ResultCarouselDesctop'
 
 export default ResultCarousel;
