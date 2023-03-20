@@ -32,7 +32,13 @@ export const histogramSlice = createSlice({
         histogramInfo: null,
         status:'',
         publicationIds: [],
-        documents: null,
+        documents: [],
+    },
+    reducers: {
+        dropDocumentsInfo: (state) => {
+            state.publicationIds = [];
+            state.documents = [];
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -50,8 +56,9 @@ export const histogramSlice = createSlice({
             state.publicationIds = action.payload;
         })
         .addCase(getDocuments.fulfilled, (state, action)=>{
-            state.documents = action.payload;
+            state.documents = [...state.documents, ...action.payload];
         })
     }
 }) 
+export const {dropDocumentsInfo} = histogramSlice.actions
 export default histogramSlice.reducer

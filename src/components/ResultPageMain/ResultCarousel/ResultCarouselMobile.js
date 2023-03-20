@@ -22,6 +22,16 @@ const ResultCarouselMobile = () => {
         />
       );
     }
+    function RightArrow(props) {
+      const { className, style, onClick } = props;
+      return (
+        <RightChevron 
+          className={className}
+          style={{ ...style}}
+          onClick={onClick}
+        />
+      );
+    }
     const settings = {
         slidesToScroll: 1,
         className: "center",
@@ -29,7 +39,7 @@ const ResultCarouselMobile = () => {
         centerPadding: "60px",
         slidesToShow: 1,
         swipeToSlide: true,
-        nextArrow: <RightChevron />,
+        nextArrow: <RightArrow />,
         prevArrow: <LeftArrow />,  
       };
     return (

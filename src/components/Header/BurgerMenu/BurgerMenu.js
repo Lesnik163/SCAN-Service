@@ -45,7 +45,7 @@ function BurgerMenu() {
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
             >
-              <Offcanvas.Header closeButton  d-flex className='burgerMenu__header closeButton d-flex'>
+              <Offcanvas.Header closeButton   className='burgerMenu__header closeButton d-flex'>
                 <Logo />
               </Offcanvas.Header>
               <Offcanvas.Body className='burgerMenu__body'>

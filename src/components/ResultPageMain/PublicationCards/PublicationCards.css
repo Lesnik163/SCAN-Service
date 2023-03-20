@@ -1,6 +1,7 @@
 .publicationCards__wrapper{
     display:flex; 
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .publicationCards__content{
     display: block;
@@ -10,6 +11,7 @@
     border-radius: 10px;
     padding: 20px 30px 35px 30px;
     word-break: break-all;
+    margin-bottom: 20px;
 }
 .publicationCards__title{
     font-weight: 700;
@@ -23,6 +25,7 @@
 .publicationCards__span{
     color:#949494;
     margin-right: 20px;
+    min-width: 90px;
 }
 .publicationCards__article{
     color:#949494;

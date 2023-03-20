@@ -24,6 +24,16 @@ const ResultCarouselDesctop = () => {
         />
       );
     }
+    function RightArrow(props) {
+      const { className, style, onClick } = props;
+      return (
+        <RightChevron 
+          className={className}
+          style={{ ...style}}
+          onClick={onClick}
+        />
+      );
+    }
     const settings = {
         slidesToScroll: 1,
         className: "center",
@@ -31,7 +41,7 @@ const ResultCarouselDesctop = () => {
         centerPadding: "60px",
         slidesToShow: slidesToShow,
         swipeToSlide: true,
-        nextArrow: <RightChevron />,
+        nextArrow: <RightArrow />,
         prevArrow: <LeftArrow />,  
       };
     return (

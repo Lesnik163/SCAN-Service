@@ -9,6 +9,26 @@ import { ReactComponent as RightChevron } from './right-chevron.svg';
 import { ReactComponent as LeftChevron } from './left-chevron.svg';
 import { useSelector } from 'react-redux';
 
+function RightArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <RightChevron 
+      className={className}
+      style={{ ...style}}
+      onClick={onClick}
+    />
+  );
+}
+function LeftArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <LeftChevron 
+      className={className}
+      style={{ ...style}}
+      onClick={onClick}
+    />
+  );
+}
 const Carousel = () => {
   const newWidth = useSelector(state => state.app.width)
   
@@ -20,8 +40,8 @@ const Carousel = () => {
       centerPadding: "60px",
       slidesToShow: slidesToShow,
       swipeToSlide: true,
-      nextArrow: <RightChevron />,
-      prevArrow: <LeftChevron />,  
+      nextArrow: <RightArrow />,
+      prevArrow: <LeftArrow />,  
     };
     return (
       <div>

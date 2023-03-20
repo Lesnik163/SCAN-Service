@@ -88,7 +88,6 @@ const SearchForm = () => {
         "riskFactors"
       ]
     }
-    console.log(requestBody)
     dispatch(getHistogramInfo(requestBody));
     dispatch(getPublication(requestBody))
     navigate('/result')

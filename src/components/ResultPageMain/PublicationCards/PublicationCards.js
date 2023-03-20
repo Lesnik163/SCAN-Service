@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { documentSearch } from '../../../MockData/documentSearch'
-import { getDocuments } from '../../../store/slices/histograms'
+// import { documentSearch } from '../../../MockData/documentSearch'
+import { dropDocumentsInfo, getDocuments } from '../../../store/slices/histograms'
 import './PublicationCards.css'
 import {convertDocObjectToCard} from '../../../utils/convertDocObjectToCardInfo'
 import Badge from 'react-bootstrap/Badge';
@@ -14,20 +14,31 @@ const PublicationCards = () => {
 
   const dispatch = useDispatch();
   const [offSet, setOffSet] = useState(0)
-
+  console.log(documents)
   useEffect(()=>{
     if(publicationIds.length){
       const idsForRequest = publicationIds.slice(offSet, 10)
       dispatch(getDocuments({ids:idsForRequest}))
+      // setOffSet((offSet)=>offSet+10)
     }
-  },[publicationIds, offSet, dispatch])
+    return () => {
+      console.log('hui')
+      dispatch(dropDocumentsInfo())
+    }
+  },[publicationIds,dispatch,offSet])
 
-  // if(!documents) {
-  //   return null
-  // }
-  const docs = convertDocObjectToCard(documentSearch)
-  
+  if(!documents.length) {
+    return null
+  }
+  const docs = convertDocObjectToCard(documents)
+  const showTenArticles = () => {
+    const idsForRequest = publicationIds.slice(offSet, 10);
+    // dispatch(getDocuments({ids:idsForRequest}))
+    setOffSet((offSet)=>offSet+10)
+  }
+  let isDone = documents.length >= publicationIds.length
   return (
+    <>
     <div className='publicationCards__wrapper'>
     {docs.map((obj, ind)=>
     
@@ -54,6 +65,8 @@ const PublicationCards = () => {
     </div>         
       )}
   </div>
+  {!isDone && <button onClick={showTenArticles} className='publicationCards__btn'>Показать больше</button>}
+  </>
 )
 }
 
