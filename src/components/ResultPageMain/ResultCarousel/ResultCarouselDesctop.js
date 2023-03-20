@@ -6,7 +6,7 @@ import { ReactComponent as RightChevron } from '../../CommonAccessMain/MainCarou
 import { ReactComponent as LeftChevron } from '../../CommonAccessMain/MainCarousel/Carousel/left-chevron.svg';
 import Period from './Period';
 
-const ResultCarousel = () => {
+const ResultCarouselDesctop = () => {
     // const summary = objectSearchToSummary(objectSearch.data)
     const summary = useSelector(state => state.histograms.histogramInfo)
     const newWidth = useSelector(state => state.app.width)
@@ -43,7 +43,8 @@ const ResultCarousel = () => {
           </div>
           <div className='slider-wrapper'>
             <Slider {...settings} >
-              {summary && summary.map((period)=><Period
+              {summary && summary.map((period, ind)=><Period
+              key={ind}
               className='periodItemCss'
               date={period.date}
               total={period.total}
@@ -54,4 +55,4 @@ const ResultCarousel = () => {
         </div>
   )
 }
-export default ResultCarousel
+export default ResultCarouselDesctop

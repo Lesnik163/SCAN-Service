@@ -3,7 +3,7 @@ import './SearchForm.css'
 import document from '../document.svg';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getDocuments, getHistogramInfo, getPublication } from '../../../store/slices/histograms';
+import { getHistogramInfo, getPublication } from '../../../store/slices/histograms';
 import {useNavigate} from 'react-router-dom';
 
 const SearchForm = () => {
@@ -11,12 +11,23 @@ const SearchForm = () => {
   const [endDate, setExpireDate] = useState('');
   const [inn, setInn] = useState('');
   const [accessedDocs, setAccessedDocs] = useState('');
+  const [maxFullness, setMaxFullness] = useState(false);
+  const [inBusinessNews, setInBusinessNews] = useState(false);
+  const [onlyMainRole, setOnlyMainRole] = useState(false);
+  const [excludeAnnouncements, setExcludeAnnouncements] = useState(false);
+  const [tonality, setTonality] = useState('');//может быть 'positive' и 'negative'
   const navigate = useNavigate();
 
   const dispatch = useDispatch()
   const onChangeHandle = (evt, typeInputInfo) => {
     const newValue = evt.target.value;
     typeInputInfo(newValue); 
+  }
+  const onCheckHandle = (evt, setInputChecked) => {
+    setInputChecked(checked =>!checked)
+  }
+  const onSelectHandle = (evt) => {
+    setTonality(evt.target.value)
   }
   const handleSubmit = async () => {
     const requestBody = {
@@ -32,13 +43,13 @@ const SearchForm = () => {
               sparkId: null,
               entityId: null,
               inn,
-              maxFullness: true,
-              inBusinessNews: null
+              maxFullness: maxFullness,//Признак максимальной полноты
+              inBusinessNews: inBusinessNews //упоминание в бизнесс контексте
             }
           ],
-          onlyMainRole: true,
-          tonality: "any",
-          onlyWithRiskFactors: false,
+          onlyMainRole: onlyMainRole, //Главная роль в публикации;
+          tonality: tonality,//Тональность
+          onlyWithRiskFactors: false, //Публикации только с риск-факторами
           riskFactors: {
             and: [],
             or: [],
@@ -64,7 +75,7 @@ const SearchForm = () => {
       },
       attributeFilters: {
         excludeTechNews: true,
-        excludeAnnouncements: true,
+        excludeAnnouncements: true,//???Включать анонсы и календари???
         excludeDigests: true
       },
       similarMode: "duplicates",
@@ -77,10 +88,12 @@ const SearchForm = () => {
         "riskFactors"
       ]
     }
+    console.log(requestBody)
     dispatch(getHistogramInfo(requestBody));
     dispatch(getPublication(requestBody))
     navigate('/result')
   }
+  
   const submitDisable = !( startDate && endDate && inn && accessedDocs )
   return (
     <form className='searchForm'>
@@ -96,11 +109,11 @@ const SearchForm = () => {
           name='tone'
           value={inn}
           onChange={(evt=>onChangeHandle(evt, setInn))} />
-          <label for='tone'>Тональность</label>
-          <select className='input' id='tone'>
-            <option>позитивная</option>
-            <option>негативная</option>
-            <option>любая</option>
+          <label htmlFor='tone'>Тональность</label>
+          <select className='input' id='tone' value={tonality} onChange={evt => onSelectHandle(evt)}>
+            <option value='positive' >позитивная</option>
+            <option value='negative' >негативная</option>
+            <option value='any' >любая</option>
           </select>
           <label className='label' htmlFor='documentQuantity' >Количество документов в выдаче<sup className='sup' >*</sup></label>
           <input 
@@ -114,7 +127,7 @@ const SearchForm = () => {
           value={accessedDocs}
           onChange={(evt=>onChangeHandle(evt, setAccessedDocs))}
           />
-            <label for="start">Диапазон поиска<sup className='sup'>*</sup></label>
+            <label htmlFor="start">Диапазон поиска<sup className='sup'>*</sup></label>
           <div className='dateSpan'>
             <input 
             className='input' 
@@ -143,32 +156,39 @@ const SearchForm = () => {
         <div className='searchForm__checkBoxesAndBtn'>
           <div className='searchForm__checkBoxes'>
             <div className='check' >
-              <input className='checkBox' type="checkbox" id="first" name="checkBox"  />
-              <label for="first">Признак максимальной полноты</label>
+              <input className='checkBox' type="checkbox" id="first" name="maxFullness"  
+              onChange={(evt) =>onCheckHandle(evt, setMaxFullness)} checked={maxFullness}/>
+              <label htmlFor="first">Признак максимальной полноты</label>
             </div>
             <div className='check' >
-              <input className='checkBox' type="checkbox" id="second" name="checkBox"  />
-              <label for="second">Упоминания в бизнес-контексте</label>
+              <input className='checkBox' type="checkbox" id="second" name="inBusinessNews"  
+              onChange={(evt) =>onCheckHandle(evt, setInBusinessNews)} checked={inBusinessNews}/>
+              <label htmlFor="second">Упоминания в бизнес-контексте</label>
             </div>
             <div className='check' >
-              <input className='checkBox' type="checkbox" id="third" name="checkBox"  />
-              <label for="third">Главная роль в публикации</label>
+              <input className='checkBox' type="checkbox" id="third" name="onlyMainRole"  
+              onChange={(evt) =>onCheckHandle(evt, setOnlyMainRole)} checked={onlyMainRole}/>
+              <label htmlFor="third">Главная роль в публикации</label>
+            </div>
+            <div className='check disabled' >
+              <input className='checkBox' type="checkbox" id="fourth" name="checkBox" 
+              disabled/>
+              <label htmlFor="fourth">Публикации только с риск-факторами</label>
+            </div>
+            <div className='check disabled' >
+              <input className='checkBox' type="checkbox" id="fifth" name="checkBox"  
+               disabled/>
+              <label htmlFor="fifth">Включать технические новости рынков</label>
             </div>
             <div className='check' >
-              <input className='checkBox' type="checkbox" id="fourth" name="checkBox" />
-              <label for="fourth">Публикации только с риск-факторами</label>
+              <input className='checkBox' type="checkbox" id="sixth" name="excludeAnnouncements"  
+              onChange={(evt) =>onCheckHandle(evt, setExcludeAnnouncements)} checked={excludeAnnouncements}/>
+              <label htmlFor="sixth">Включать анонсы и календари</label>
             </div>
-            <div className='check' >
-              <input className='checkBox' type="checkbox" id="fifth" name="checkBox"  />
-              <label for="fifth">Включать технические новости рынков</label>
-            </div>
-            <div className='check' >
-              <input className='checkBox' type="checkbox" id="sixth" name="checkBox"  />
-              <label for="sixth">Включать анонсы и календари</label>
-            </div>
-            <div className='check' >
-              <input className='checkBox' type="checkbox" id="seventh" name="checkBox"  />
-              <label for="seventh">Включать сводки новостей</label>
+            <div className='check disabled' >
+              <input className='checkBox' type="checkbox" id="seventh" name="checkBox"  
+               disabled/>
+              <label htmlFor="seventh">Включать сводки новостей</label>
             </div>
           </div>
           <div className='searchForm__btn'>

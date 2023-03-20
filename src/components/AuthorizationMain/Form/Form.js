@@ -1,22 +1,33 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Inputs from '../Inputs';
 import './Form.css';
 import FormFooter from '../FormFooter';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate} from 'react-router-dom';
-import { signIn } from '../../../store/slices/profile';
+import { dropStatus, signIn } from '../../../store/slices/profile';
 
 const Form = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const signInStatus = useSelector(state => state.profile.status)
+  useEffect(()=>{
+    if(signInStatus === 'done'){
+      navigate("/");
+      dispatch(dropStatus())
+    }
+    if(signInStatus === 'error'){
+      setError(true);
+    }
+  },[error , signInStatus, navigate, dispatch])
   const  handleSubmit = async () => {
     dispatch(signIn({
       login,
       password
     }))
-    navigate("/");   
+       
   }
   const submitDisable = !( login && password )
   return (
@@ -29,7 +40,9 @@ const Form = () => {
         login={login} 
         password={password} 
         setLogin={setLogin} 
-        setPassword={setPassword}/>
+        setPassword={setPassword}
+        error={error}
+        />
         <button 
         className='form__button' 
         onClick={handleSubmit} 

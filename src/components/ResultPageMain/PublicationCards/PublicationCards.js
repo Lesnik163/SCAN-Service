@@ -29,17 +29,19 @@ const PublicationCards = () => {
   
   return (
     <div className='publicationCards__wrapper'>
-    {docs.map(obj=>
-    <div className='publicationCards__content'>
+    {docs.map((obj, ind)=>
+    
+    <div className='publicationCards__content' key={ind}>
         <div className='publicationCards__dateArticle'>
           <span className='publicationCards__span'>{obj.date}</span>
           <a 
           className='publicationCards__article'
-          href={obj.articleUrl}>{obj.articleUrlTitle}</a>
+          href={obj.articleUrl}>{obj.articleUrlTitle}
+          </a>
         </div>
         <h4 className='publicationCards__title'>{obj.articleTitle}</h4>
         {obj.articleTags && obj.articleTags.map(tag => (
-          <Badge bg="warning" text="dark">{tag}</Badge>
+          <Badge bg="warning" text="dark" key={tag}>{tag}</Badge>
         ))}
         {obj.imageUrl && <img className='publicationCards__img' src={obj.imageUrl} alt='article pic' />}
         <div dangerouslySetInnerHTML={{ __html: obj.articleContent }} />

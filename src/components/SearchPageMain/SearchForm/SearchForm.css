@@ -109,6 +109,12 @@
 .toggle-btn{
     display:none;
 }
+input:disabled{
+    opacity: 40%;
+}
+.disabled{
+    opacity: 40%;
+}
 @media all and (max-width: 1400px){
     .searchForm__wrapper{
         position: relative;

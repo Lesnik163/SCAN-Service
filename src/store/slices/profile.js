@@ -29,7 +29,10 @@ export const profile = createSlice({
         signOut: (state) => {
             state.accountInfo = null;
             state.companyInfo = null;
-            localStorage.removeItem('accessToken')
+            localStorage.removeItem('accessToken');       
+        },
+        dropStatus: (state) => {
+            state.status = ''
         }
     },
     extraReducers: (builder) => {
@@ -48,8 +51,11 @@ export const profile = createSlice({
             state.companyInfo=action.payload;
             state.status = 'done';
         })
+        .addCase(signIn.rejected, (state)=>{
+            state.status = 'error'
+        })
     }
   })
   
-  export const {signOut} = profile.actions
+  export const {signOut, dropStatus} = profile.actions
   export default profile.reducer

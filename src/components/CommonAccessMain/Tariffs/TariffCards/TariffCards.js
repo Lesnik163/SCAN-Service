@@ -40,7 +40,7 @@ const TariffCards = () => {
           </div> 
         </div>        
         <div className='card__body card__body_aim'>
-            <span className='card__actual-tariff'>Текущий тариф</span>
+            <span className='card__actual-tariff' style={{visibility:'hidden'}}>Текущий тариф</span>
             <h2 className='card__price'>799 ₽<span className='card__old-price'>1 200 ₽</span></h2>
             <section className='card__price-explanation'>или 150 ₽/мес. при рассрочке на 24 мес.</section>
             <h3 className='card__list'>В тариф входит:</h3>
@@ -49,7 +49,7 @@ const TariffCards = () => {
               <li className='card__list-item'>Безопасная сделка</li>
               <li className='card__list-item'>Поддержка 24/7</li>
             </ul>
-            <button className='card__btn'>Перейти в личный кабинет</button>
+            <button className='card__btn' style={{background:'#5970FF',color:'white'}}>Подробнее</button>
         </div>
       </div>
       <div className='tariffCards__card tariffCards__card_business'>
@@ -63,7 +63,7 @@ const TariffCards = () => {
           </div> 
         </div>        
         <div className='card__body card__body_business'>
-            <span className='card__actual-tariff'>Текущий тариф</span>
+            <span className='card__actual-tariff' style={{visibility:'hidden'}}>Текущий тариф</span>
             <h2 className='card__price'>799 ₽<span className='card__old-price'>1 200 ₽</span></h2>
             <section className='card__price-explanation'>или 150 ₽/мес. при рассрочке на 24 мес.</section>
             <h3 className='card__list'>В тариф входит:</h3>
@@ -72,7 +72,7 @@ const TariffCards = () => {
               <li className='card__list-item'>Безопасная сделка</li>
               <li className='card__list-item'>Поддержка 24/7</li>
             </ul>
-            <button className='card__btn'>Перейти в личный кабинет</button>
+            <button className='card__btn' style={{background:'#5970FF',color:'white'}}>Подробнее</button>
         </div>
       </div>
     
