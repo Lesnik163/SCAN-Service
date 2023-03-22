@@ -7,7 +7,7 @@
     padding:10px;
     font-size:10px;
     line-height:20px;
-    align-items: end;
+    align-items: flex-end;
     margin-right: 7vw;
 }
 .companyBox__usedCompany{

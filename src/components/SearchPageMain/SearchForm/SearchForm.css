@@ -157,6 +157,9 @@ input:disabled{
         width:60%;
         margin: 10px 0;
     }
+    .dateError{
+        margin-top: -10px;
+    }
 }
 @media screen and (max-width: 900px){
     .searchForm__checkBoxesAndBtn{
@@ -166,7 +169,6 @@ input:disabled{
         display: block;
         margin-top: 30px;
     }
-    
     .input, #start, #end{
         width: 98%;
     }

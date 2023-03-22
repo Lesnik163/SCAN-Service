@@ -17,8 +17,8 @@ const SearchForm = () => {
   const [onlyMainRole, setOnlyMainRole] = useState(false);
   const [excludeAnnouncements, setExcludeAnnouncements] = useState(false);
   const [tonality, setTonality] = useState('any');//может быть 'positive' и 'negative'
-  const [isInnValid, setIsInnValid] = useState(true);
-  const [isDocQuantityValid, setIsDocQuantityValid ] = useState(true);
+  const [isInnValid, setIsInnValid] = useState(false);
+  const [isDocQuantityValid, setIsDocQuantityValid ] = useState(false);
   const [isDateValid, setIsDateValid] = useState(false)
   const navigate = useNavigate();
 
@@ -187,7 +187,7 @@ const SearchForm = () => {
             onChange={(evt=>onChangeExpireDate(evt))}
             />
           </div>
-          {!isDateValid && <section className='innError'>Введите корректные данные</section>}
+          {!isDateValid && <section className='innError dateError'>Введите корректные данные</section>}
           <div className='searchForm__btn toggle-btn'>
             <button type='submit'
             disabled={submitDisable}
