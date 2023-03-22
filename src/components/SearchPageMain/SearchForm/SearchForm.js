@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getHistogramInfo, getPublication } from '../../../store/slices/histograms';
 import {useNavigate} from 'react-router-dom';
+import validateInn from '../../../utils/validateInn';
 
 const SearchForm = () => {
   const [startDate, setStartDate] = useState('');
@@ -15,13 +16,55 @@ const SearchForm = () => {
   const [inBusinessNews, setInBusinessNews] = useState(false);
   const [onlyMainRole, setOnlyMainRole] = useState(false);
   const [excludeAnnouncements, setExcludeAnnouncements] = useState(false);
-  const [tonality, setTonality] = useState('');//может быть 'positive' и 'negative'
+  const [tonality, setTonality] = useState('any');//может быть 'positive' и 'negative'
+  const [isInnValid, setIsInnValid] = useState(true);
+  const [isDocQuantityValid, setIsDocQuantityValid ] = useState(true);
+  const [isDateValid, setIsDateValid] = useState(false)
   const navigate = useNavigate();
 
-  const dispatch = useDispatch()
-  const onChangeHandle = (evt, typeInputInfo) => {
+  const checkDocsQuantity = () => { 
+    if(+accessedDocs>0 && +accessedDocs<1001 && Number.isInteger(+accessedDocs)){
+      setIsDocQuantityValid(true);
+    }else{
+      setIsDocQuantityValid(false);
+    }
+  }
+  const onChangeStartDate = (evt) => {
     const newValue = evt.target.value;
+    if(new Date(newValue).getTime() < new Date().getTime() 
+    && new Date(newValue).getTime() < new Date(endDate).getTime()){
+      setIsDateValid(true);
+    }else{
+      setIsDateValid(false);
+    }
+    setStartDate(newValue)
+  }
+  const onChangeExpireDate = (evt) => {
+    const newValue = evt.target.value;
+    if(new Date(newValue).getTime() < new Date().getTime() 
+    && new Date(newValue).getTime() > new Date(startDate).getTime()){
+      setIsDateValid(true);
+    }else{
+      setIsDateValid(false);
+    }
+    setExpireDate(newValue)
+  }
+  const dispatch = useDispatch()
+  const onChangeInn = (evt, typeInputInfo) => {
+    const error = {}
+    const newValue = evt.target.value;
+    const result = validateInn(newValue, error);
+    setIsInnValid(result);
     typeInputInfo(newValue); 
+  }
+  const onChangeQuantity = (evt) =>{
+    const newValue = evt.target.value;
+    if(+newValue>0 && +newValue<1001 && Number.isInteger(+newValue)){
+      setIsDocQuantityValid(true);
+    }else{
+      setIsDocQuantityValid(false);
+    }
+    setAccessedDocs(newValue)
   }
   const onCheckHandle = (evt, setInputChecked) => {
     setInputChecked(checked =>!checked)
@@ -93,30 +136,32 @@ const SearchForm = () => {
     navigate('/result')
   }
   
-  const submitDisable = !( startDate && endDate && inn && accessedDocs )
+  const submitDisable = !( isDateValid && isInnValid && isDocQuantityValid )
   return (
-    <form className='searchForm'>
+    <form className='searchForm' onSubmit={handleSubmit}>
       <div className='searchForm__wrapper'>
         <img className='toggleSvg' src={document} alt='document' />
         <div className='searchForm__inputs'>
-          <label className='label' htmlFor='inn' >ИНН компании<sup className='sup'>*</sup></label>
+          <label className='label' htmlFor='inn' >ИНН компании<sup className={!isInnValid?'errorSup': ''}>*</sup></label>
           <input 
-          className='input' 
+          className={isInnValid ? 'input' : 'inputError'} 
           type='input' 
           id='inn' 
           placeholder='10 цифр' 
-          name='tone'
+          name='inn'
           value={inn}
-          onChange={(evt=>onChangeHandle(evt, setInn))} />
+          onChange={(evt=>onChangeInn(evt, setInn))} 
+          />
+          {!isInnValid && <section className='innError'>Введите корректные данные</section>}
           <label htmlFor='tone'>Тональность</label>
           <select className='input' id='tone' value={tonality} onChange={evt => onSelectHandle(evt)}>
             <option value='positive' >позитивная</option>
             <option value='negative' >негативная</option>
             <option value='any' >любая</option>
           </select>
-          <label className='label' htmlFor='documentQuantity' >Количество документов в выдаче<sup className='sup' >*</sup></label>
+          <label className='label' htmlFor='documentQuantity' >Количество документов в выдаче<sup className={!isDocQuantityValid ? 'errorSup': ''} >*</sup></label>
           <input 
-          className='input' 
+          className={isDocQuantityValid ?'input' : 'inputError'}
           type='number' 
           id='documentQuantity' 
           placeholder='От 0 до 1000' 
@@ -124,31 +169,35 @@ const SearchForm = () => {
           step="1" 
           name='documentQuantity'
           value={accessedDocs}
-          onChange={(evt=>onChangeHandle(evt, setAccessedDocs))}
+          onChange={(evt)=>onChangeQuantity(evt)}
           />
-            <label htmlFor="start">Диапазон поиска<sup className='sup'>*</sup></label>
+          {!isDocQuantityValid && <section className='innError'>Обязательное поле</section>}
+            <label htmlFor="start">Диапазон поиска<sup className={!isDateValid ? 'errorSup': ''}>*</sup></label>
           <div className='dateSpan'>
             <input 
-            className='input' 
+            className={isDateValid?'input' : 'inputError'} 
             type="date" 
             id="start" 
             name="startDate" 
             placeholder='Дата начала' 
             value={startDate}           
-            onChange={(evt=>onChangeHandle(evt, setStartDate))}
+            onChange={(evt=>onChangeStartDate(evt))}
             />
             <input 
-            className='input' 
+            className={isDateValid ?'input' : 'inputError'} 
             type="date" 
             id="end" 
             name="startDate" 
             placeholder='Дата конца' 
             value={endDate}
-            onChange={(evt=>onChangeHandle(evt, setExpireDate))}
+            onChange={(evt=>onChangeExpireDate(evt))}
             />
           </div>
+          {!isDateValid && <section className='innError'>Введите корректные данные</section>}
           <div className='searchForm__btn toggle-btn'>
-            <button className='requestForm__button'>Поиск</button>
+            <button type='submit'
+            disabled={submitDisable}
+            style={{opacity: submitDisable ? '50%' : '100%'}} className='requestForm__button'>Поиск</button>
             <span className='searchForm__span'>* Обязательные к заполнению поля</span>
           </div>
         </div>
@@ -193,9 +242,9 @@ const SearchForm = () => {
           <div className='searchForm__btn'>
             <button 
             className='requestForm__button'
-            onClick={handleSubmit}
+            type='submit'
             disabled={submitDisable}
-            style={submitDisable ? {opacity: undefined} : {opacity: `${'100%'}`}}>Поиск</button>
+            style={{opacity: submitDisable ? '50%' : '100%'}}>Поиск</button>
             <span className='searchForm__span'>* Обязательные к заполнению поля</span>
           </div>
         </div>

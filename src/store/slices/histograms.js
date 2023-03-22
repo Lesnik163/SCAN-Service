@@ -47,6 +47,7 @@ export const histogramSlice = createSlice({
         })
         .addCase(getHistogramInfo.fulfilled, (state, action)=> {
             state.histogramInfo=action.payload;
+            state.documents = [];
             state.status = 'done';
         })
         .addCase(getHistogramInfo.rejected, (state) => {

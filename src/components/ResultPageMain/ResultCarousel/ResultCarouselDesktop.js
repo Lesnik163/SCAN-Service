@@ -6,7 +6,7 @@ import { ReactComponent as RightChevron } from '../../CommonAccessMain/MainCarou
 import { ReactComponent as LeftChevron } from '../../CommonAccessMain/MainCarousel/Carousel/left-chevron.svg';
 import Period from './Period';
 
-const ResultCarouselDesctop = () => {
+const ResultCarouselDesktop = () => {
     // const summary = objectSearchToSummary(objectSearch.data)
     const summary = useSelector(state => state.histograms.histogramInfo)
     const newWidth = useSelector(state => state.app.width)
@@ -65,4 +65,4 @@ const ResultCarouselDesctop = () => {
         </div>
   )
 }
-export default ResultCarouselDesctop
+export default ResultCarouselDesktop

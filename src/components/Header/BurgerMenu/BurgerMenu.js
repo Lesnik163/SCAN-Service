@@ -21,13 +21,13 @@ function LoginButton() {
   );
 }  
 function ReturnMain() {
-  function handleClick() {
+  function handleClick(evt) {
     navigate("/");
   }
   const navigate = useNavigate();
 
   return (
-    <Nav.Link href="#action1" onClick={handleClick}>Главная</Nav.Link>
+    <Nav.Link href="/" onClick={handleClick}>Главная</Nav.Link>
   );
 }  
 
@@ -45,16 +45,15 @@ function BurgerMenu() {
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
             >
-              <Offcanvas.Header closeButton   className='burgerMenu__header closeButton d-flex'>
+              <Offcanvas.Header closeButton className='burgerMenu__header closeButton d-flex'>
                 <Logo />
               </Offcanvas.Header>
               <Offcanvas.Body className='burgerMenu__body'>
                 
                 <Nav className="text-center nav">
                   <ReturnMain />
-                  {/* <Nav.Link href="#action1" onClick={returnMain}>Главная</Nav.Link> */}
-                  <Nav.Link href="#action2" >Тарифы</Nav.Link>
-                  <Nav.Link href="#action3" >FAQ</Nav.Link>
+                  <Nav.Link href="###" style={{pointerEvents: 'none'}}>Тарифы</Nav.Link>
+                  <Nav.Link href="###" style={{pointerEvents: 'none'}}>FAQ</Nav.Link>
                 </Nav>
                 <a className='burgerMenu__link' href='XXX' >Зарегистрироваться</a>
                 <LoginButton />

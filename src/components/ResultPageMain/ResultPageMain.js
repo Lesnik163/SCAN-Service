@@ -3,14 +3,16 @@ import './ResultPageMain.css';
 import aim from './womenAim.svg';
 import { useSelector } from 'react-redux';
 import PublicationCards from './PublicationCards';
-import ResultCarouselDesctop from './ResultCarousel/ResultCarouselDesctop';
+import ResultCarouselDesktop from './ResultCarousel/ResultCarouselDesktop';
 import ResultCarouselMobile from './ResultCarousel/ResultCarouselMobile';
+import LoaderInfo from '../Header/AccountAfterAuthorization/LoaderInfo/LoaderInfo';
 
 const ResultPageMain = () => {
   let fundedDocs = useSelector(state => state.histograms.histogramInfo)
   const newWidth = useSelector(state => state.app.width)
   const isMobile = newWidth < 700
-  const ChosenCarousel = isMobile ? ResultCarouselMobile : ResultCarouselDesctop
+  const ChosenCarousel = isMobile ? ResultCarouselMobile : ResultCarouselDesktop
+  const isChosenCarousel = fundedDocs ? <ChosenCarousel /> : <LoaderInfo />
   return (
     <main className='resultMain'>
       <div className='resultMain__wrapper'>  
@@ -28,7 +30,7 @@ const ResultPageMain = () => {
             <h1 className='upper__title upper__title_middle'>Общая сводка</h1>
             <section className='resultMain__section'>Найдено {fundedDocs?.length||0} варианта(ов)</section>
           </div>
-          <ChosenCarousel />
+          {isChosenCarousel}
         </div>
         <div className='resultMain__lower'>
           <div className='lower__box'>

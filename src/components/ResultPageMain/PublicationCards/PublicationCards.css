@@ -53,6 +53,18 @@
     display: block;
     margin: 15px  auto 0 auto;
 }
+.publicationCards__showBtn{
+    background: #5970FF;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 30px;
+}
+.adjustBox{
+    display:flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 @media all and (max-width:950px) {
     .publicationCards__wrapper{
         flex-direction: column;

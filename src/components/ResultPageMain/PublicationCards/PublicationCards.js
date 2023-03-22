@@ -13,17 +13,14 @@ const PublicationCards = () => {
   }))
 
   const dispatch = useDispatch();
-  const [offSet, setOffSet] = useState(0)
-  console.log(documents)
+  const [offSet, setOffSet] = useState(0);
   useEffect(()=>{
     if(publicationIds.length){
-      const idsForRequest = publicationIds.slice(offSet, 10)
-      dispatch(getDocuments({ids:idsForRequest}))
+      const idsForRequest = publicationIds.slice(offSet,  offSet+10)
+      if(idsForRequest.length) {
+        dispatch(getDocuments({ids:idsForRequest}))
+      }
       // setOffSet((offSet)=>offSet+10)
-    }
-    return () => {
-      console.log('hui')
-      dispatch(dropDocumentsInfo())
     }
   },[publicationIds,dispatch,offSet])
 
@@ -65,7 +62,10 @@ const PublicationCards = () => {
     </div>         
       )}
   </div>
-  {!isDone && <button onClick={showTenArticles} className='publicationCards__btn'>Показать больше</button>}
+  <div className='adjustBox'>
+    {!isDone && <button onClick={showTenArticles} className='publicationCards__showBtn'>Показать больше</button>}
+  </div>
+  
   </>
 )
 }
