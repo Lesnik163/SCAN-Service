@@ -6,7 +6,6 @@
     background-color: white;
     border: none;
 }
-
 .burgerMenu__header{
     background-color: #029491;
 }
@@ -38,15 +37,14 @@
 .own {
     background-color: white;
     border: none;
-    outline: none !important;
-    
+    outline: none !important;  
 }
 .closeButton > button{
     background:center url('./closeBtn.svg');
     background-repeat: no-repeat;
     cursor: pointer;
 }
-@media all and (max-width: 950px) {
+@media screen and (max-width: 950px) {
     .BurgerMenu {
         display: block !important; 
     }

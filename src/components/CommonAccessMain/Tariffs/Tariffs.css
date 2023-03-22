@@ -9,7 +9,7 @@
     font-weight: 900;
     margin-top: 80px;
 }
-@media all and (max-width: 750px) {
+@media screen and (max-width: 750px) {
     .tariff__title{
         font-size: 28px;
         line-height: 33px; 

@@ -25,15 +25,13 @@
 .menu__link_active:hover{
     color:blue;
 }
-@media all and (max-width:1000px) {
+@media screen and (max-width:1000px) {
     .menu{
     margin-left: 60px;
-    }
-    
+    }  
 }
-@media all and (max-width:950px) {
+@media screen and (max-width:950px) {
     .menu{
         display: none;
-    }
-    
+    } 
 }

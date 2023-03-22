@@ -28,7 +28,7 @@
 .searchBarImg{
     margin-top: 255px;
 }
-@media all and (max-width: 1400px){
+@media screen and (max-width: 1400px){
     .main__wrapper_search{
         margin: 0 auto;
         display: flex;
@@ -56,7 +56,7 @@
         align-self: flex-start;
     }
 }
-@media all and (max-width:900px){
+@media screen and (max-width:900px){
     .searchBarImg{
         margin-top: 0vh;
         scale: 0.8;

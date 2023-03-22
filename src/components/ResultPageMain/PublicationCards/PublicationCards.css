@@ -10,7 +10,7 @@
     box-shadow: 0 0 20px rgb(0 0 0 / 20%);
     border-radius: 10px;
     padding: 20px 30px 35px 30px;
-    word-break: break-all;
+    word-break: break-screen;
     margin-bottom: 20px;
 }
 .publicationCards__title{
@@ -65,7 +65,7 @@
     justify-content: center;
     margin-top: 20px;
 }
-@media all and (max-width:950px) {
+@media screen and (max-width:950px) {
     .publicationCards__wrapper{
         flex-direction: column;
         align-items: center;

@@ -26,17 +26,17 @@
     cursor: pointer;
     margin-left: 5%;
 }
-@media all and (max-width:1320px) {
+@media screen and (max-width:1320px) {
     .accountPanel__link, .accountPanel__verticalSlash, .accountPanel__button {
         margin-right: 5%;
     }
 }
-@media all and (max-width:1320px) {
+@media screen and (max-width:1320px) {
     .accountPanel {
         width: 44vw;
     }
 }
-@media all and (max-width: 950px) {
+@media screen and (max-width: 950px) {
     .accountPanel {
         display: none;
     }

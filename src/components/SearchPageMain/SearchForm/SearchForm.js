@@ -22,13 +22,7 @@ const SearchForm = () => {
   const [isDateValid, setIsDateValid] = useState(false)
   const navigate = useNavigate();
 
-  const checkDocsQuantity = () => { 
-    if(+accessedDocs>0 && +accessedDocs<1001 && Number.isInteger(+accessedDocs)){
-      setIsDocQuantityValid(true);
-    }else{
-      setIsDocQuantityValid(false);
-    }
-  }
+  
   const onChangeStartDate = (evt) => {
     const newValue = evt.target.value;
     if(new Date(newValue).getTime() < new Date().getTime() 

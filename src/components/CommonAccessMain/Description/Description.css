@@ -32,7 +32,7 @@
     font-weight: 500;
     width: 335px;
 }
-@media all and (max-width: 1150px) {
+@media screen and (max-width: 1150px) {
     .Description__block{
         display: flex;
         flex-direction: column;
@@ -50,7 +50,7 @@
         width: 100%;
     }
 }
-@media all and (max-width: 750px) {
+@media screen and (max-width: 750px) {
     .Description__title{
         font-size: 28px;
         line-height: 33px;
