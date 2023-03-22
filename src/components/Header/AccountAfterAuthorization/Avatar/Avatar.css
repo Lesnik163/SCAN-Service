@@ -11,7 +11,7 @@
     line-height: 12px;
     background-color: white;
     opacity: 40%;
-    text-align: end;
+    text-align: flex-end;
 }
 .avatar__img{
     margin:5px 0 0 5px;

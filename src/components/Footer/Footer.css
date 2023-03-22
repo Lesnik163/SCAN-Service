@@ -9,7 +9,7 @@
     margin: 0 auto;
 }
 .footer__connectInfo{
-    text-align: end;
+    text-align: flex-end;
     margin-top: 27px;
     color:white;
 }
